@@ -1,0 +1,15 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "core/*",
+    "commands/*",
+    "models/*",
+    "utils/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "lerna": "^8.1.2",
+    "typescript": "^5.4.3"
+  }
+}
