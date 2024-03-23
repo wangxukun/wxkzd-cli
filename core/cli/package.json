@@ -5,7 +5,7 @@
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/core.js",
+  "main": "bin/index.js",
   "bin": {
     "wxkzd-cli": "bin/index.js"
   },
@@ -28,6 +28,9 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@wxkzd-cli/utils": "file:../../utils/utils"
+    "@types/import-local": "^3.1.2",
+    "@wxkzd-cli/utils": "file:../../utils/utils",
+    "import-local": "^3.1.0",
+    "npmlog": "^7.0.1"
   }
 }

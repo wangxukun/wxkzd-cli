@@ -1,7 +1,11 @@
 #! /usr/bin/env node
 
-import { Utils } from '@wxkzd-cli/utils';
+import importLocal from 'import-local';
 
-console.log('hello, bin/index.ts');
-const utils = new Utils();
-utils.hi();
+if (importLocal(__filename)) {
+  require('npmlog').info('cli', '正在使用wxkzd-cli本地版本');
+} else {
+  require('../lib')(process.argv.slice(2));
+  console.log(__filename);
+  require('npmlog').info('cli', importLocal(__filename));
+}
