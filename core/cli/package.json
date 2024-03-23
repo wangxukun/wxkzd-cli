@@ -6,9 +6,13 @@
   "homepage": "",
   "license": "ISC",
   "main": "lib/core.js",
+  "bin": {
+    "wxkzd-cli": "bin/index.js"
+  },
   "typings": "/lib/core.d.ts",
   "directories": {
     "lib": "lib",
+    "bin": "bin",
     "test": "__tests__"
   },
   "files": [
@@ -18,7 +22,12 @@
     "access": "public"
   },
   "scripts": {
-    "tsc": "tsc",
+    "tsc:bin": "tsc -p tsconfig-bin.json",
+    "tsc:lib": "tsc -p tsconfig-lib.json",
+    "tsc": "npm run tsc:bin && npm run tsc:lib",
     "test": "node ./__tests__/core.test.js"
+  },
+  "dependencies": {
+    "@wxkzd-cli/utils": "file:../../utils/utils"
   }
 }

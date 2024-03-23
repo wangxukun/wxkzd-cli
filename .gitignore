@@ -2,6 +2,7 @@ node_modules/
 lerna-debug.log
 npm-debug.log
 core/*/lib
+core/*/bin
 commands/*/lib
 models/*/lib
 utils/*/lib
