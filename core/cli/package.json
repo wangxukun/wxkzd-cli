@@ -1,6 +1,6 @@
 {
   "name": "@wxkzd-cli/core",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "> TODO: description",
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "",
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@types/import-local": "^3.1.2",
-    "@wxkzd-cli/utils": "file:../../utils/utils",
     "@wxkzd-cli/log": "file:../../utils/log",
+    "@wxkzd-cli/utils": "file:../../utils/utils",
     "import-local": "^3.1.0",
     "npmlog": "^7.0.1"
   }
