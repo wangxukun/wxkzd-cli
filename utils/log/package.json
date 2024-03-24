@@ -1,14 +1,11 @@
 {
-  "name": "@wxkzd-cli/core",
+  "name": "@wxkzd-cli/log",
   "version": "0.0.6",
   "description": "> TODO: description",
   "author": "wang xukun <wangxukun@hotmail.com>",
-  "homepage": "",
+  "homepage": "https://github.com/wangxukun/wxkzd-cli#readme",
   "license": "ISC",
-  "main": "",
-  "bin": {
-    "wxkzd-cli": "bin/index.js"
-  },
+  "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
@@ -20,15 +17,18 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangxukun/wxkzd-cli.git"
+  },
   "scripts": {
     "tsc": "tsc",
-    "test": "node ./__tests__/core.test.js"
+    "test": "node ./__tests__/log.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/wangxukun/wxkzd-cli/issues"
   },
   "dependencies": {
-    "@types/import-local": "^3.1.2",
-    "@wxkzd-cli/utils": "file:../../utils/utils",
-    "@wxkzd-cli/log": "file:../../utils/log",
-    "import-local": "^3.1.0",
     "npmlog": "^7.0.1"
   }
 }
