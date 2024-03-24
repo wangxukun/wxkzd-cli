@@ -5,19 +5,17 @@
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "bin/index.js",
+  "main": "",
   "bin": {
     "wxkzd-cli": "bin/index.js"
   },
-  "typings": "/bin/index.d.ts",
+  "typings": "lib/index.d.ts",
   "directories": {
-    "bin": "bin",
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib",
-    "bin"
+    "lib"
   ],
   "publishConfig": {
     "access": "public"

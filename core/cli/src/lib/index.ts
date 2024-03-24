@@ -1,5 +1,3 @@
-module.exports = core;
-
-function core() {
+export function core() {
   console.log('exec core');
 }
