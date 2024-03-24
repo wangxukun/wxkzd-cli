@@ -9,9 +9,8 @@
   "bin": {
     "wxkzd-cli": "bin/index.js"
   },
-  "typings": "/lib/core.d.ts",
+  "typings": "/bin/index.d.ts",
   "directories": {
-    "lib": "lib",
     "bin": "bin",
     "test": "__tests__"
   },

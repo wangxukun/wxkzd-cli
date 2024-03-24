@@ -9,6 +9,7 @@
   ],
   "devDependencies": {
     "@types/node": "^20.11.30",
+    "@wxkzd-cli/core": "^0.0.3",
     "lerna": "^8.1.2",
     "typescript": "^5.4.3"
   },
