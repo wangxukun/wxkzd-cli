@@ -6,3 +6,4 @@ core/*/bin
 commands/*/lib
 models/*/lib
 utils/*/lib
+.vscode/*
