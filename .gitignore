@@ -7,3 +7,4 @@ commands/*/lib
 models/*/lib
 utils/*/lib
 .vscode/*
+.idea/*

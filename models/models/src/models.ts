@@ -1,9 +1,6 @@
 export class Models {
-  get(id) {
-    return {};
-  }
 
-  hi() {
-    console.log('hello, models.');
-  }
+    hi() {
+        console.log('hello, models.');
+    }
 }

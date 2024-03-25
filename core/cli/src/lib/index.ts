@@ -1,12 +1,14 @@
 module.exports = core;
 
-const pkg = require('../package.json');
-const log = require('@wxkzd-cli/log');
+// @ts-ignore
+import pkg from '../package.json';
+// @ts-ignore
+import log from '@wxkzd-cli/log';
+
 function core() {
-  checkPkgVersion();
-  log();
+    checkPkgVersion();
 }
 
 function checkPkgVersion() {
-  console.log(pkg.version);
+    log.notice('cli', pkg.version);
 }

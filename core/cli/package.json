@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@types/import-local": "^3.1.2",
+    "@types/npmlog": "^7.0.0",
     "@wxkzd-cli/log": "file:../../utils/log",
     "@wxkzd-cli/utils": "file:../../utils/utils",
     "import-local": "^3.1.0",

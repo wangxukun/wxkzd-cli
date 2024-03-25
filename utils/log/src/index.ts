@@ -1,7 +1,9 @@
-module.exports = index;
+import log from 'npmlog';
 
-const log = require('npmlog');
 
-function index() {
-  log.info('cli', 'test');
-}
+log.level = process.env.LOG_LEVEL ? process.env.LOG_LEVEL : 'info';
+log.heading = 'wxkzd';
+log.headingStyle = {fg: 'red', bg: 'black'}
+log.addLevel('success', 2000, {fg: 'blue', bg: 'green', bold: true});
+
+export = log;
