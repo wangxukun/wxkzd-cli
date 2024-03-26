@@ -2,7 +2,8 @@ module.exports = core;
 
 import semver from 'semver';
 import colors from 'colors/safe';
-import rootCheck from "root-check";
+
+const rootCheck = require('root-check');
 // @ts-ignore
 import pkg from '../package.json';
 // @ts-ignore
