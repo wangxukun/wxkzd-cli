@@ -20,5 +20,6 @@
   "scripts": {
     "tsc": "tsc",
     "test": "node ./__tests__/models.test.js"
-  }
+  },
+  "gitHead": "294b244a7887ac448998afc83faee10dcea85dd2"
 }
