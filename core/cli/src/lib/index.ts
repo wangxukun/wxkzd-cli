@@ -3,6 +3,9 @@ module.exports = core;
 import semver from 'semver';
 import colors from 'colors/safe';
 import rootCheck from "root-check";
+import {homedir} from "node:os";
+
+const pathExists = require('path-exists').sync;
 // @ts-ignore
 import pkg from '../package.json';
 // @ts-ignore
@@ -15,17 +18,27 @@ function core(): void {
         checkPkgVersion();
         checkNodeVersion();
         checkRoot();
+        checkUserHome();
 
     } catch (e: any) {
         log.error("cli", e.message);
     }
 }
 
-function checkRoot() {
-    rootCheck();
-    console.log(process.geteuid);
+// 检查用户主目录
+function checkUserHome() {
+    const dir = homedir();
+    if (!dir || !pathExists(dir)) {
+        throw new Error(colors.red('当前登录用户主目录不存在！'));
+    }
 }
 
+// 检查root用户，并降级
+function checkRoot() {
+    rootCheck();
+}
+
+// 检查nodejs version
 function checkNodeVersion(): void {
     const currentVersion: string = process.version;
     const lowestVersion: string = LOWEST_NODE_VERSION;
@@ -34,6 +47,7 @@ function checkNodeVersion(): void {
     }
 }
 
+// 检查package version
 function checkPkgVersion(): void {
     log.notice('cli', pkg.version);
 }
