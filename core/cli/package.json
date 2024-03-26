@@ -1,6 +1,6 @@
 {
   "name": "@wxkzd-cli/core",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "> TODO: description",
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "",
@@ -28,8 +28,8 @@
     "@types/import-local": "^3.1.2",
     "@types/npmlog": "^7.0.0",
     "@types/semver": "^7.5.8",
-    "@wxkzd-cli/log": "^0.0.11",
-    "@wxkzd-cli/utils": "^0.0.11",
+    "@wxkzd-cli/log": "^0.0.12",
+    "@wxkzd-cli/utils": "^0.0.12",
     "colors": "^1.4.0",
     "import-local": "^3.1.0",
     "npmlog": "^7.0.1",
