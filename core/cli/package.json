@@ -27,9 +27,16 @@
   "dependencies": {
     "@types/import-local": "^3.1.2",
     "@types/npmlog": "^7.0.0",
+    "@types/semver": "^7.5.8",
     "@wxkzd-cli/log": "file:../../utils/log",
     "@wxkzd-cli/utils": "file:../../utils/utils",
+    "colors": "^1.4.0",
     "import-local": "^3.1.0",
-    "npmlog": "^7.0.1"
+    "npmlog": "^7.0.1",
+    "root-check": "^2.0.0",
+    "semver": "^7.6.0"
+  },
+  "devDependencies": {
+    "@types/root-check": "^1.0.2"
   }
 }
