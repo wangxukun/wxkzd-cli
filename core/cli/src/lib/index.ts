@@ -2,8 +2,7 @@ module.exports = core;
 
 import semver from 'semver';
 import colors from 'colors/safe';
-
-const rootCheck = require('root-check');
+import rootCheck from "root-check";
 // @ts-ignore
 import pkg from '../package.json';
 // @ts-ignore
@@ -24,6 +23,7 @@ function core(): void {
 
 function checkRoot() {
     rootCheck();
+    console.log(process.geteuid);
 }
 
 function checkNodeVersion(): void {

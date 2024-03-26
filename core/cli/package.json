@@ -35,5 +35,8 @@
     "npmlog": "^7.0.1",
     "root-check": "^1.0.0",
     "semver": "^7.6.0"
+  },
+  "devDependencies": {
+    "@types/root-check": "^1.0.2"
   }
 }
