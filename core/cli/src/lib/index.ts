@@ -11,6 +11,7 @@ import {Command} from 'commander';
 import pkg from '../package.json';
 import log from '@wxkzd-cli/log';
 import NpmInfo from "@wxkzd-cli/npm-info";
+import Init from "@wxkzd-cli/init";
 import {LOWEST_NODE_VERSION, DEFAULT_CLI_HOME} from './const';
 
 /**
@@ -61,6 +62,11 @@ class Core {
             .usage('<command> [options]')
             .option('-d, --debug', 'whether to enable the debugging mode', true)
             .version(pkg.version);
+
+        this.program
+            .command('init [projectName]')
+            .option('-f, --force', 'initialize the project forcibly?')
+            .action(new Init().start);
 
         /**
          * 对-d, --debug开启debug械监听

@@ -1,7 +1,7 @@
 {
-  "name": "@wxkzd-cli/log",
+  "name": "@wxkzd-cli/init",
   "version": "0.1.0",
-  "description": "wxkzd-cli log",
+  "description": "wxkzd-cli init",
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "https://github.com/wangxukun/wxkzd-cli#readme",
   "license": "ISC",
@@ -23,13 +23,9 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "node ./__tests__/log.test.js"
+    "test": "node ./__tests__/init.test.js"
   },
   "bugs": {
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
-  },
-  "dependencies": {
-    "npmlog": "^7.0.1"
-  },
-  "gitHead": "294b244a7887ac448998afc83faee10dcea85dd2"
+  }
 }

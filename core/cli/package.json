@@ -31,6 +31,7 @@
     "@wxkzd-cli/log": "^0.1.0",
     "@wxkzd-cli/npm-info": "../../utils/npm-info",
     "@wxkzd-cli/utils": "^0.1.0",
+    "@wxkzd-cli/init": "../../commands/init",
     "colors": "^1.4.0",
     "commander": "^12.0.0",
     "dotenv": "^16.4.5",
