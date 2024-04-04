@@ -6,6 +6,7 @@ import pathExists from 'path-exists';
 import minimist from "minimist";
 import dotenv from 'dotenv';
 import path from 'path';
+import {Command} from 'commander';
 // @ts-ignore
 import pkg from '../package.json';
 import log from '@wxkzd-cli/log';
@@ -24,9 +25,12 @@ interface CliConfig {
  */
 class Core {
     private args: minimist.ParsedArgs = {_: []};
-    private config: dotenv.DotenvConfigOutput = {};
+    // private config: dotenv.DotenvConfigOutput = {};
+    private program: Command;
 
     constructor() {
+        // 实例化脚手架对象
+        this.program = new Command();
     }
 
     /**
@@ -38,11 +42,51 @@ class Core {
             this.checkNodeVersion();
             this.checkRoot();
             this.checkUserHome();
-            this.checkInputArgs();
+            // this.checkInputArgs();
             this.checkEnv();
             await this.checkGlobalUpdate();
+            this.registerCommand();
         } catch (e: any) {
             log.error("cli", e.message);
+        }
+    }
+
+    /**
+     * 注册脚手架
+     * @private
+     */
+    private registerCommand() {
+        this.program
+            .name(Object.keys(pkg.bin)[0])
+            .usage('<command> [options]')
+            .option('-d, --debug', 'whether to enable the debugging mode', true)
+            .version(pkg.version);
+
+        /**
+         * 对-d, --debug开启debug械监听
+         */
+        this.program.on('option:debug', () => {
+            process.env.LOG_LEVEL = 'verbose';
+            log.level = process.env.LOG_LEVEL;
+        });
+
+        /**
+         * 对未知命令监听
+         */
+        this.program.on('command:*', (obj) => {
+            const availableCommands = this.program.commands.map(cmd => cmd.name());
+            log.notice('cli', colors.red('unknown command :' + obj[0]));
+            if (availableCommands.length > 0) {
+                log.notice('cli', colors.red('available command :' + availableCommands.join(',')));
+            }
+        })
+
+        this.program.parse(process.argv);
+
+        // 当没有具体的命令或参数输入时，打印帮助信息
+        if (this.program.args && this.program.args.length < 1) {
+            this.program.outputHelp();
+            console.log();
         }
     }
 
