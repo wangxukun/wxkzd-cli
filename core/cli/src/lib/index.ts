@@ -3,16 +3,16 @@ import colors from 'colors/safe';
 import rootCheck from "root-check";
 import {homedir} from "node:os";
 import pathExists from 'path-exists';
-import minimist from "minimist";
 import dotenv from 'dotenv';
 import path from 'path';
-import {Command} from 'commander';
+import {Command} from '@commander-js/extra-typings';
 // @ts-ignore
 import pkg from '../package.json';
 import log from '@wxkzd-cli/log';
 import NpmInfo from "@wxkzd-cli/npm-info";
-import Init from "@wxkzd-cli/init";
 import {LOWEST_NODE_VERSION, DEFAULT_CLI_HOME} from './const';
+
+const init = require('@wxkzd-cli/init');
 
 /**
  * 定义cli配置对象类型
@@ -25,8 +25,6 @@ interface CliConfig {
  * 核心功能类
  */
 class Core {
-    private args: minimist.ParsedArgs = {_: []};
-    // private config: dotenv.DotenvConfigOutput = {};
     private program: Command;
 
     constructor() {
@@ -66,7 +64,7 @@ class Core {
         this.program
             .command('init [projectName]')
             .option('-f, --force', 'initialize the project forcibly?')
-            .action(new Init().start);
+            .action(init);
 
         /**
          * 对-d, --debug开启debug械监听
@@ -145,25 +143,6 @@ class Core {
             cliConfig['cliHome'] = path.join(homedir(), DEFAULT_CLI_HOME);
         }
         process.env.CLI_HOME_PATH = cliConfig.cliHome;
-    }
-
-    /**
-     * 检查输入参数
-     * @private
-     */
-    private checkInputArgs(): void {
-        this.args = minimist(process.argv.slice(2));
-        this.checkArgs();
-    }
-
-    // 检查输入参数
-    private checkArgs() {
-        if (this.args.debug) {
-            process.env.LOG_LEVEL = 'verbose';
-        } else {
-            process.env.LOG_LEVEL = 'info';
-        }
-        log.level = process.env.LOG_LEVEL;
     }
 
     /**

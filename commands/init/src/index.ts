@@ -1,13 +1,7 @@
-import {Command} from 'commander';
+import {Command} from '@commander-js/extra-typings';
 
-class Init {
-    constructor() {
-    }
-
-    public start(projectName: string, cmdObj: Command) {
-        console.log('init', projectName, cmdObj);
-    }
-
+function init(projectName: string, cmdObj: Command) {
+    console.log('init', projectName, cmdObj);
 }
 
-export default Init;
+export = init;
