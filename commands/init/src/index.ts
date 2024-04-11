@@ -1,7 +1,11 @@
-import {Command} from '@commander-js/extra-typings';
+import {CommandOptions} from '@commander-js/extra-typings';
 
-function init(projectName: string, cmdObj: Command) {
-    console.log('init', projectName, cmdObj);
+interface myOptions extends CommandOptions {
+    "force": boolean;
+}
+
+function init(projectName: string, options: myOptions) {
+    console.log('init', projectName, options.force, process.env.CLI_TARGET_PATH);
 }
 
 export = init;
