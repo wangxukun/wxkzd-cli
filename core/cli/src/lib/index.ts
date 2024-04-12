@@ -7,7 +7,7 @@ import {homedir} from "node:os";
 import pathExists from 'path-exists';
 import dotenv from 'dotenv';
 import path from 'path';
-import {program, Command} from '@commander-js/extra-typings';
+import {program} from '@commander-js/extra-typings';
 // @ts-ignore
 import pkg from '../package.json';
 import log from '@wxkzd-cli/log';

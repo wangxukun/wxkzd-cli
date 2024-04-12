@@ -1,19 +1,21 @@
-import {packageDirectory} from "pkg-dir";
+import * as path from "path";
+
+const pkgDir = require('pkg-dir').sync;
+const formatPath = require('@wxkzd-cli/format-path');
 
 interface Options {
-    "targetPath":string;
-    "storePath":string;
-    "name":string;
-    "version":string;
+    "targetPath": string | undefined;
+    "name": string;
+    "version": string;
 }
+
 class Package {
-    private targetPath:string;
-    private storePath:string;
-    private name:string;
-    private version:string;
-    constructor(options:Options) {
+    private targetPath: string | undefined;
+    private name: string;
+    private version: string;
+
+    constructor(options: Options) {
         this.targetPath = options.targetPath;
-        this.storePath = options.storePath;
         this.name = options.name;
         this.version = options.version;
     }
@@ -33,10 +35,17 @@ class Package {
     // 获取入口文件的路径
     getRootFilePath() {
         // 1. 获取package.json所在目录
-        // 2. 读取package.json
-        // 3. 寻找main或lib
-        // 4. 路径的兼容（macOS/windows）
-        console.log(packageDirectory())
+        const rootDir = pkgDir(this.targetPath);
+        if (rootDir) {
+            // 2. 读取package.json
+            const pkg = require(path.resolve(rootDir, 'package.json'));
+            // 3. 寻找main或lib
+            if (pkg && pkg.main) {
+                // 4. 路径的兼容（macOS/windows）
+                return formatPath(path.resolve(rootDir, pkg.main));
+            }
+        }
+        return null;
     }
 }
 

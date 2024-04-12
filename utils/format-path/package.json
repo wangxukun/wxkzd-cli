@@ -1,7 +1,7 @@
 {
-  "name": "@wxkzd-cli/package",
+  "name": "@wxkzd-cli/format-path",
   "version": "0.2.2",
-  "description": "wxkzd-cli npm modules",
+  "description": "wxkzd-cli format path",
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "https://github.com/wangxukun/wxkzd-cli#readme",
   "license": "ISC",
@@ -22,13 +22,9 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "node ./__tests__/@wxkzd-cli/package.test.js"
+    "test": "node ./__tests__/@wxkzd-cli/format-path.test.js"
   },
   "bugs": {
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
-  },
-  "dependencies": {
-    "pkg-dir": "^5.0.0",
-    "@wxkzd-cli/format-path": "file:../../utils/format-path"
   }
 }
