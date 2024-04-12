@@ -23,7 +23,7 @@ class NpmInfo {
         });
     }
 
-    private getDefaultRegistry(isOriginal: boolean = false): string {
+    public getDefaultRegistry(isOriginal: boolean = false): string {
         return isOriginal ? 'https://registry.npmjs.org' : 'https://registry.npm.taobao.org/';
     }
 
