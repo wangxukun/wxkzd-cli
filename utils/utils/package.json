@@ -1,8 +1,8 @@
 {
-  "name": "@wxkzd-cli/package",
+  "name": "@wxkzd-cli/utils",
   "version": "0.2.2",
-  "description": "wxkzd-cli npm modules",
-  "author": "wang xukun <wangxukun@hotmail.com>",
+  "description": "wxkzd-cli utils",
+  "author": "wangxk-office <'wang_xukun@163.com'>",
   "homepage": "https://github.com/wangxukun/wxkzd-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -22,13 +22,9 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "node ./__tests__/@wxkzd-cli/package.test.js"
+    "test": "node ./__tests__/@wxkzd-cli/utils.test.js"
   },
   "bugs": {
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
-  },
-  "dependencies": {
-    "commander": "^12.0.0",
-    "pkg-dir": "^8.0.0"
   }
 }

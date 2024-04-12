@@ -25,7 +25,8 @@
     "test": "node ./__tests__/@wxkzd-cli/exec.test.js"
   },
   "dependencies": {
-    "@wxkzd-cli/package": "file:../../models/package"
+    "@wxkzd-cli/package": "file:../../models/package",
+    "@wxkzd-cli/log": "file:../../utils/log"
   },
   "bugs": {
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
