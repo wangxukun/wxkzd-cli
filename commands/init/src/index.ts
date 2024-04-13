@@ -1,10 +1,11 @@
-import {CommandOptions} from '@commander-js/extra-typings';
+import log from '@wxkzd-cli/log';
 
-interface myOptions extends CommandOptions {
+interface myOptions {
     "force": boolean;
 }
 
 function init(projectName: string, options: myOptions) {
+    log.verbose('init', 'init.js was executed');
     console.log('init', projectName, options.force, process.env.CLI_TARGET_PATH);
 }
 

@@ -28,9 +28,12 @@
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
   },
   "dependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@wxkzd-cli/format-path": "file:../../utils/format-path",
     "@wxkzd-cli/npm-info": "file:../../utils/npm-info",
+    "fs-extra": "^11.2.0",
     "npminstall": "^7.12.0",
+    "path-exists": "^3.0.0",
     "pkg-dir": "^5.0.0"
   }
 }

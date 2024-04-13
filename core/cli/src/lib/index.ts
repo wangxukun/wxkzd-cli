@@ -34,6 +34,9 @@ async function core(): Promise<any> {
         registerCommand();
     } catch (e: any) {
         log.error("cli", e.message);
+        if (process.env.LOG_LEVEL === 'verbose') {
+            console.error(e);
+        }
     }
 }
 

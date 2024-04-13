@@ -51,6 +51,15 @@ class NpmInfo {
         }
         return null;
     }
+
+    public async getNpmLatestVersion(npmName: string, registry: string): Promise<string | null> {
+        let versions: string[] = await this.getNpmVersions(npmName, registry);
+        if (versions) {
+            versions = versions.sort((a: string, b: string) => semver.compare(b, a));
+            return versions[0];
+        }
+        return null;
+    }
 }
 
 export default NpmInfo;

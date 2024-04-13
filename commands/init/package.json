@@ -29,7 +29,6 @@
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
   },
   "dependencies": {
-    "@commander-js/extra-typings": "^12.0.1",
-    "commander": "^12.0.0"
+    "@wxkzd-cli/log": "file:../../utils/log"
   }
 }
