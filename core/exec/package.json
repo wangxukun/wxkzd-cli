@@ -1,6 +1,6 @@
 {
   "name": "@wxkzd-cli/exec",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "wxkzd-cli execute package",
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "https://github.com/wangxukun/wxkzd-cli#readme",
@@ -25,8 +25,8 @@
     "test": "node ./__tests__/@wxkzd-cli/exec.test.js"
   },
   "dependencies": {
-    "@wxkzd-cli/package": "file:../../models/package",
-    "@wxkzd-cli/log": "file:../../utils/log"
+    "@wxkzd-cli/log": "file:../../utils/log",
+    "@wxkzd-cli/package": "file:../../models/package"
   },
   "bugs": {
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
