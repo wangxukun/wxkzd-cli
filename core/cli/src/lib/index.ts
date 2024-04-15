@@ -12,9 +12,8 @@ import {program} from '@commander-js/extra-typings';
 import pkg from '../package.json';
 import log from '@wxkzd-cli/log';
 import NpmInfo from "@wxkzd-cli/npm-info";
-import {LOWEST_NODE_VERSION, DEFAULT_CLI_HOME} from './const';
+import {DEFAULT_CLI_HOME} from './const';
 
-const init = require('@wxkzd-cli/init');
 const exec = require('@wxkzd-cli/exec');
 
 /**
@@ -99,7 +98,6 @@ function registerCommand() {
  */
 async function prepare() {
     checkPkgVersion();
-    checkNodeVersion();
     checkRoot();
     checkUserHome();
     checkEnv();
@@ -175,17 +173,6 @@ function checkRoot(): void {
     rootCheck();
 }
 
-/**
- * 检查Nodejs version
- * @private
- */
-function checkNodeVersion(): void {
-    const currentVersion: string = process.version;
-    const lowestVersion: string = LOWEST_NODE_VERSION;
-    if (!semver.gte(currentVersion, lowestVersion)) {
-        throw new Error(colors.red(`wxkzd-cli需要安装v${lowestVersion}以上版本的Node.js`));
-    }
-}
 
 /**
  * 检查package version

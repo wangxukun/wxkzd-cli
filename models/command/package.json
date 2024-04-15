@@ -1,12 +1,11 @@
 {
-  "name": "@wxkzd-cli/init",
+  "name": "@wxkzd-cli/command",
   "version": "0.3.0",
-  "description": "wxkzd-cli init",
+  "description": "wxkzd-cli command",
   "author": "wang xukun <wangxukun@hotmail.com>",
   "homepage": "https://github.com/wangxukun/wxkzd-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -23,13 +22,15 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "node ./__tests__/init.test.js"
+    "test": "node ./__tests__/@wxkzd-cli/command.test.js"
   },
   "bugs": {
     "url": "https://github.com/wangxukun/wxkzd-cli/issues"
   },
   "dependencies": {
     "@wxkzd-cli/log": "file:../../utils/log",
-    "@wxkzd-cli/command": "file:../../models/command"
+    "@types/semver": "^7.5.8",
+    "colors": "^1.4.0",
+    "semver": "^7.6.0"
   }
 }

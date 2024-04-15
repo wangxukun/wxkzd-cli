@@ -46,7 +46,6 @@ class Package {
         }
         if (this.version === 'latest') {
             this.version = await this.npmInfo.getNpmLatestVersion(this.name, this.npmInfo.getDefaultRegistry(true));
-            // TODO package-prepare
         }
     }
 

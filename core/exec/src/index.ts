@@ -56,6 +56,7 @@ async function exec() {
     log.verbose('rootFile', rootFile);
     if (rootFile) {
         // 在当前进程中调用，动态加载子命令（模块）
-        require(rootFile).apply(null, arguments); // 执行init函数
+        require(rootFile).call(null, Array.from(arguments)); // 执行init函数
+        // TODO require(rootFile).call(null, Array.from(arguments)); // 执行init函数
     }
 }
