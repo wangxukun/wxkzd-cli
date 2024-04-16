@@ -1,3 +1,6 @@
+import {SpawnOptions} from "node:child_process";
+
+const cp = require('child_process');
 import path from 'path';
 import Package from "@wxkzd-cli/package";
 import log from '@wxkzd-cli/log';
@@ -55,8 +58,46 @@ async function exec() {
     const rootFile = pkg.getRootFilePath();
     log.verbose('rootFile', rootFile);
     if (rootFile) {
-        // 在当前进程中调用，动态加载子命令（模块）
-        require(rootFile).call(null, Array.from(arguments)); // 执行init函数
-        // TODO require(rootFile).call(null, Array.from(arguments)); // 执行init函数
+        try {
+            // 在当前进程中调用，动态加载子命令（模块）
+            // require(rootFile).call(null, Array.from(arguments)); // 执行init函数
+            // TODO require(rootFile).call(null, Array.from(arguments)); // 执行init函数
+            // 在node子进程中调用
+            // TODO 在node子进程中调用
+            const args = Array.from(arguments);
+            const cmd = args[args.length - 1];
+            const o = Object.create(null);
+            Object.keys(cmd).forEach(key => {
+                if (cmd.hasOwnProperty(key) && !key.startsWith('_') && key !== 'parent') {
+                    o[key] = cmd[key];
+                }
+            });
+            args[args.length - 1] = o;
+            const code = `require('${rootFile}').call(null, ${JSON.stringify(args)})`;
+            const child = spawn('node', ['-e', code], {
+                cwd: process.cwd(),
+                stdio: 'inherit'
+            });
+            child.on('error', (e: any) => {
+                log.error('cli', e.message)
+                process.exit(1);
+            })
+            child.on('exit', (e: any) => {
+                log.verbose('命令执行成功：', +e);
+                process.exit(e);
+            })
+
+        } catch (e: any) {
+            log.error("cli", e.message);
+        }
     }
+}
+
+function spawn(command: string, args: readonly string[], options: SpawnOptions) {
+    const wind32 = process.platform === 'win32';
+
+    const cmd = wind32 ? 'cmd' : command;
+    const cmdArgs = wind32 ? ['/c'].concat(command, args) : args;
+
+    return cp.spawn(cmd, cmdArgs, options || {});
 }
